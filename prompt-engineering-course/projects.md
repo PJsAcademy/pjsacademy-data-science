@@ -1,0 +1,97 @@
+# 🛠️ Prompt Engineering — 10 Hands-On Projects
+
+Apply every module. Each project lists what you build, the key techniques, and a starter prompt/spec. Do them in order — they build on each other.
+
+---
+
+## 1. The Prompt Rewriter ⭐
+**Build:** A tool (prompt) that takes a weak prompt and rewrites it using the 6-component structure.
+**Techniques:** Module 02 (anatomy), role prompting.
+**Starter:**
+```
+You are a prompt engineering expert. Rewrite the user's prompt to include, where useful:
+role, task, context, input placeholder, constraints, and output format.
+Then explain in 2 lines what you improved.
+User prompt: "{weak_prompt}"
+```
+**Win:** You'll internalise good structure by teaching it.
+
+---
+
+## 2. Bulletproof JSON Extractor ⭐⭐
+**Build:** Extract structured data (name, email, intent, priority) from messy customer messages as validated JSON.
+**Techniques:** Module 04 — schema-first, Literal types, validation.
+**Spec:** Use Pydantic with `Literal` categories; validate in Python; retry-with-repair on failure. Test on 15 messy inputs including edge cases (missing fields, multiple emails).
+
+---
+
+## 3. Few-Shot Classifier ⭐⭐
+**Build:** A support-ticket router into 5 custom categories with confidence.
+**Techniques:** Module 02 — few-shot, diverse examples, boundary cases.
+**Win:** Measure accuracy on a 20-example test set; iterate the examples to push accuracy up.
+
+---
+
+## 4. Chain-of-Thought Math/Logic Solver ⭐⭐
+**Build:** A solver for word problems that shows reasoning then gives a clean final answer in a separate field.
+**Techniques:** Module 03 — CoT, output separation (hidden reasoning + visible answer).
+**Spec:** Return `{"reasoning": "...", "answer": "..."}`. Compare accuracy with vs without CoT on 10 problems.
+
+---
+
+## 5. Self-Consistency Grader ⭐⭐⭐
+**Build:** Run a hard reasoning prompt 5x at temperature 0.8 and return the majority answer + agreement %.
+**Techniques:** Module 03 — self-consistency.
+**Win:** See accuracy improve on ambiguous questions; learn the cost/accuracy tradeoff.
+
+---
+
+## 6. Grounded Q&A over a Document (mini-RAG) ⭐⭐⭐
+**Build:** Paste a long document; answer questions using ONLY it, with citations and abstention.
+**Techniques:** Module 05 — grounding prompt, citation, abstention.
+**Spec:** Number the paragraphs; require `[n]` citations; confirm it says "not in document" for out-of-scope questions.
+
+---
+
+## 7. Full RAG Chatbot ⭐⭐⭐⭐
+**Build:** Chunk + embed a folder of docs (Chroma/FAISS), retrieve top-k, answer grounded with sources.
+**Techniques:** Module 05 — full pipeline, chunking, retrieval, grounding.
+**Spec:** Add hybrid search or re-ranking for v2. Test the failure modes table from 5.7 and fix each.
+
+---
+
+## 8. Tool-Using Assistant ⭐⭐⭐⭐
+**Build:** An assistant that uses 2–3 tools (calculator, web search stub, a data lookup) via function calling.
+**Techniques:** Module 04 — tool calling; Module 03 — ReAct.
+**Spec:** Write precise tool descriptions; handle the model calling the wrong tool; log every tool call.
+
+---
+
+## 9. Prompt Evaluation Harness ⭐⭐⭐⭐
+**Build:** A script that runs an eval set against a prompt and reports pass rate; includes an LLM-as-judge for open-ended answers.
+**Techniques:** Module 06 — evals, LLM-as-judge.
+**Win:** Now you can compare prompt versions objectively — the pro workflow. Reuse this on every other project.
+
+---
+
+## 10. Mini-Agent (Capstone) ⭐⭐⭐⭐⭐
+**Build:** An agent that, given a goal ("research topic X and write a brief"), loops: plans → uses tools → observes → writes a final report.
+**Techniques:** Everything — ReAct, tools, grounding, guardrails, chaining.
+**Spec:** Enforce a max-step limit and a token budget; require confirmation before any outward action; log the full reasoning/action trace. Keep it single-purpose.
+
+---
+
+## 🎯 Portfolio Tips
+- Put projects 6, 7, 9, and 10 on your **GitHub + resume** — RAG, evals, and agents are exactly what employers screen for in 2026.
+- Write a short README per project explaining the prompt-engineering decisions — that reflection is what proves mastery.
+- **Resume line example:** *"Built a grounded RAG chatbot with hybrid retrieval, citation-enforced prompts, and an LLM-as-judge evaluation harness."*
+
+---
+
+## ➡️ Where To Go Next
+- **LLM & AI Agents Mastery** — production agents, multi-agent systems, deployment (advanced follow-up course).
+- **Data Science Mastery** — the ML foundations under GenAI.
+
+---
+
+*🧠 Prompt Engineering Mastery — [PJ's Academy](https://pjsacademy.com) · hello@pjsacademy.com*

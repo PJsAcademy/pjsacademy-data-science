@@ -1,0 +1,138 @@
+# Module 02 — Core Techniques: The Anatomy of a Great Prompt
+
+> 90% of prompting improvement comes from these fundamentals. Master them before the fancy stuff.
+
+---
+
+## 2.1 The 6 Components of a Strong Prompt
+
+A production prompt usually has some or all of these, in this order:
+
+```
+1. ROLE        → "You are an expert financial analyst."
+2. TASK        → "Summarise the earnings report below."
+3. CONTEXT     → "The reader is a non-technical investor."
+4. INPUT DATA  → "<report> ... </report>"
+5. CONSTRAINTS → "Max 100 words. No jargon. Neutral tone."
+6. OUTPUT FMT  → "Return 3 bullet points."
+```
+
+**Weak prompt:** *"Summarise this."*
+**Strong prompt:** *"You are a financial analyst. Summarise the earnings report below for a non-technical investor in exactly 3 bullet points, under 100 words, no jargon."*
+
+The strong prompt removes ambiguity — and **ambiguity is where LLMs fail.**
+
+## 2.2 Zero-Shot Prompting
+
+Just ask, no examples. Works well for common tasks the model has seen thousands of times.
+
+```
+Classify the sentiment of this review as Positive, Negative, or Neutral.
+Review: "The battery dies in an hour but the screen is gorgeous."
+Sentiment:
+```
+
+**When it fails:** ambiguous tasks, custom labels, specific formats. Then → few-shot.
+
+## 2.3 Few-Shot Prompting (the workhorse)
+
+Show examples of input → output. The model pattern-matches. This is the single most reliable technique.
+
+```
+Classify support tickets into: Billing, Technical, Account.
+
+Ticket: "I was charged twice this month" → Billing
+Ticket: "The app crashes on login" → Technical
+Ticket: "How do I change my email?" → Account
+Ticket: "My card was declined but I still got charged" →
+```
+
+**Few-shot rules:**
+- **2–5 examples** is usually the sweet spot.
+- Make examples **diverse** (cover the edge cases you care about).
+- Keep the **format identical** across examples — the model copies the pattern exactly.
+- Put the **hardest/most ambiguous** example in, so the model learns the boundary.
+
+## 2.4 Delimiters — Separate Instructions from Data
+
+Always fence user/input data so the model can't confuse it with your instructions. This also **defends against prompt injection**.
+
+```
+Summarise the text between the triple backticks.
+
+```
+{user_text_here}
+```
+```
+
+Use `""" """`, ` ``` `, or XML tags like `<document>...</document>`. XML tags are especially clear and Claude-friendly:
+
+```
+<instructions>Extract all dates.</instructions>
+<document>{text}</document>
+```
+
+## 2.5 Be Specific & Positive
+
+- **Specific beats vague:** "Write 5 subject lines under 8 words each, using curiosity" >> "write some subject lines".
+- **Say what TO do, not just what NOT to do.** "Respond only in formal English" beats "don't be casual."
+- **Give the model an out:** "If the answer isn't in the text, reply 'Not found'." This single line kills a huge class of hallucinations.
+
+## 2.6 Role / Persona Prompting
+
+Assigning a role primes the model's tone and knowledge.
+
+```
+You are a senior DevOps engineer with 15 years of experience.
+Explain Kubernetes to a junior developer using one analogy.
+```
+
+Roles work because they concentrate the model on a region of its training distribution. Use them to set **expertise level, tone, and audience.**
+
+## 2.7 Output Formatting Control
+
+Tell the model *exactly* how to shape output:
+
+```
+Return your answer as a markdown table with columns: Feature | Benefit | Example.
+```
+```
+Respond ONLY with valid JSON matching: {"name": string, "score": number}. No prose.
+```
+
+The more precisely you specify format, the more reliably you can parse the result in code (Module 04 goes deep on this).
+
+## 2.8 Prompt Iteration — the Real Skill
+
+You rarely nail a prompt first try. The loop:
+
+```
+1. Write a first prompt
+2. Run it on 5–10 varied inputs
+3. Find the failures
+4. Add a constraint / example / clarification that fixes THAT failure
+5. Re-run — make sure you didn't break the passing cases
+6. Repeat
+```
+
+Keep a **prompt changelog** — you'll be surprised how often a "small tweak" regresses other cases.
+
+---
+
+## ✅ Key Takeaways
+1. Structure prompts with Role · Task · Context · Input · Constraints · Format.
+2. **Few-shot** examples are the most reliable lever — 2–5 diverse, identically-formatted.
+3. **Delimiters** separate instructions from data (and block injection).
+4. Be **specific and positive**; always give the model an "I don't know" out.
+5. Prompt engineering is **iterative** — test on varied inputs, fix failures one at a time.
+
+## 🏋️ Exercises
+1. Take a vague prompt and rewrite it using all 6 components. Compare outputs.
+2. Build a 4-example few-shot classifier for a custom set of categories you care about.
+3. Add "If not present, reply 'N/A'" to an extraction prompt and confirm it stops making things up.
+
+**Next:** [Module 03 — Advanced Reasoning →](module-03-advanced-reasoning.md)
+
+---
+
+*🧠 Prompt Engineering Mastery — [PJ's Academy](https://pjsacademy.com)*
