@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PJ Bot — PJ's Academy Chatbot</title>
+<!--
+  ══════════════════════════════════════════════════════════════
+  PJ BOT — Website Chatbot for PJ's Academy
+  ══════════════════════════════════════════════════════════════
+  HOW TO USE:
+  1. To test: open this file directly in a browser.
+  2. To embed on your site: copy everything between
+     <!-- PJBOT START --> and <!-- PJBOT END --> into your page,
+     just before the closing </body> tag.
+  3. To edit answers: change the KB array in the <script> below.
+  ══════════════════════════════════════════════════════════════
+-->
+<style>
+  body{font-family:'Inter',system-ui,sans-serif;background:#0d0d1a;min-height:100vh;margin:0;color:#fff;}
+  .page-demo{padding:60px;text-align:center;}
+  .page-demo h1{color:#f0a500;}
+</style>
+</head>
+<body>
+
+<div class="page-demo">
+  <h1>PJ's Academy — Chatbot Test Page</h1>
+  <p>Click the gold chat bubble at the bottom-right to talk to PJ Bot.</p>
+</div>
+
+<!-- ══════════════ PJBOT START ══════════════ -->
+<div id="pjbot-root"></div>
+<style>
+  #pjbot-root *{box-sizing:border-box;}
+  .pjb-launcher{position:fixed;bottom:28px;right:28px;z-index:99999;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#f0a500,#d4920a);border:none;cursor:pointer;display:grid;place-items:center;box-shadow:0 8px 30px rgba(240,165,0,.45);transition:all .3s;animation:pjb-bob 3s ease-in-out infinite;}
+  .pjb-launcher:hover{transform:scale(1.08);}
+  .pjb-launcher svg{width:30px;height:30px;}
+  .pjb-badge{position:absolute;top:-2px;right:-2px;width:20px;height:20px;background:#29b5e8;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;color:#0d0d1a;border:2px solid #0d0d1a;}
+  .pjb-window{position:fixed;bottom:104px;right:28px;z-index:99999;width:380px;max-width:calc(100vw - 40px);height:560px;max-height:calc(100vh - 140px);background:#13132b;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 70px rgba(0,0,0,.55);border:1px solid rgba(240,165,0,.15);transform-origin:bottom right;transition:opacity .25s,transform .25s;font-family:'Inter',system-ui,sans-serif;}
+  .pjb-window.pjb-hidden{opacity:0;transform:scale(.85) translateY(20px);pointer-events:none;}
+  .pjb-header{background:linear-gradient(135deg,#0d0d1a,#1a1a3e);padding:18px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,.06);}
+  .pjb-avatar{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#f0a500,#29b5e8);display:grid;place-items:center;font-size:20px;flex-shrink:0;}
+  .pjb-info h3{color:#fff;font-size:15px;font-weight:700;margin:0;}
+  .pjb-status{color:#2ecc71;font-size:12px;display:flex;align-items:center;gap:5px;}
+  .pjb-status::before{content:'';width:7px;height:7px;background:#2ecc71;border-radius:50%;animation:pjb-blink 1.5s infinite;}
+  .pjb-close{margin-left:auto;background:rgba(255,255,255,.08);border:none;color:#fff;width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:16px;transition:background .2s;}
+  .pjb-close:hover{background:rgba(255,255,255,.18);}
+  .pjb-body{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;}
+  .pjb-body::-webkit-scrollbar{width:6px;}
+  .pjb-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:3px;}
+  .pjb-msg{max-width:82%;padding:12px 15px;border-radius:14px;font-size:14px;line-height:1.55;animation:pjb-pop .3s ease;}
+  .pjb-msg.bot{background:#232345;color:#e8e8f0;align-self:flex-start;border-bottom-left-radius:4px;}
+  .pjb-msg.user{background:linear-gradient(135deg,#f0a500,#d4920a);color:#0d0d1a;align-self:flex-end;border-bottom-right-radius:4px;font-weight:500;}
+  .pjb-msg.bot a{color:#29b5e8;text-decoration:none;font-weight:600;}
+  .pjb-msg b{color:#ffc542;}
+  .pjb-qr{display:flex;flex-wrap:wrap;gap:8px;padding:0 20px 8px;}
+  .pjb-chip{background:rgba(41,181,232,.1);border:1px solid rgba(41,181,232,.3);color:#29b5e8;padding:8px 14px;border-radius:20px;font-size:12.5px;font-weight:600;cursor:pointer;transition:all .2s;}
+  .pjb-chip:hover{background:rgba(41,181,232,.2);transform:translateY(-1px);}
+  .pjb-typing{display:flex;gap:4px;padding:14px 16px;background:#232345;border-radius:14px;border-bottom-left-radius:4px;align-self:flex-start;width:fit-content;}
+  .pjb-typing span{width:7px;height:7px;background:#8892a4;border-radius:50%;animation:pjb-type 1.2s infinite;}
+  .pjb-typing span:nth-child(2){animation-delay:.2s;}
+  .pjb-typing span:nth-child(3){animation-delay:.4s;}
+  .pjb-input{padding:14px 16px;border-top:1px solid rgba(255,255,255,.06);display:flex;gap:10px;background:#0d0d1a;}
+  .pjb-input input{flex:1;background:#1a1a35;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px 14px;color:#fff;font-size:14px;font-family:inherit;outline:none;transition:border .2s;}
+  .pjb-input input:focus{border-color:rgba(240,165,0,.4);}
+  .pjb-input input::placeholder{color:#8892a4;}
+  .pjb-send{background:linear-gradient(135deg,#f0a500,#d4920a);border:none;width:44px;height:44px;border-radius:12px;cursor:pointer;display:grid;place-items:center;transition:transform .2s;flex-shrink:0;}
+  .pjb-send:hover{transform:scale(1.05);}
+  .pjb-send svg{width:20px;height:20px;}
+  .pjb-footer{text-align:center;padding:8px;font-size:11px;color:#8892a4;background:#0d0d1a;}
+  .pjb-footer b{color:#f0a500;}
+  @keyframes pjb-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+  @keyframes pjb-blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+  @keyframes pjb-pop{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes pjb-type{0%,60%,100%{transform:translateY(0);opacity:.4;}30%{transform:translateY(-5px);opacity:1;}}
+</style>
+
+<button class="pjb-launcher" id="pjb-launcher">
+  <span class="pjb-badge">1</span>
+  <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.4 1.05 4.58 2.77 6.2L4 22l4.9-1.28C10.06 21.15 11.5 21.4 12 21.4c5.52 0 10-4.03 10-9s-4.48-9-10-9Z" fill="#0d0d1a"/><circle cx="8.5" cy="11.5" r="1.3" fill="#f0a500"/><circle cx="12" cy="11.5" r="1.3" fill="#f0a500"/><circle cx="15.5" cy="11.5" r="1.3" fill="#f0a500"/></svg>
+</button>
+
+<div class="pjb-window pjb-hidden" id="pjb-window">
+  <div class="pjb-header">
+    <div class="pjb-avatar">🎓</div>
+    <div class="pjb-info">
+      <h3>PJ Bot</h3>
+      <div class="pjb-status">Online · replies instantly</div>
+    </div>
+    <button class="pjb-close" id="pjb-close">✕</button>
+  </div>
+  <div class="pjb-body" id="pjb-body">
+    <div class="pjb-msg bot">👋 Hi! I'm <b>PJ Bot</b>, your guide at PJ's Academy. I can help with our courses, Snowflake track, pricing, projects, and careers. What would you like to know?</div>
+  </div>
+  <div class="pjb-qr" id="pjb-qr">
+    <div class="pjb-chip" data-q="What courses do you offer?">📚 Courses</div>
+    <div class="pjb-chip" data-q="Tell me about Snowflake">❄️ Snowflake</div>
+    <div class="pjb-chip" data-q="What is the pricing?">💰 Pricing</div>
+    <div class="pjb-chip" data-q="What projects will I build?">🚀 Projects</div>
+  </div>
+  <div class="pjb-input">
+    <input type="text" id="pjb-input" placeholder="Ask me anything...">
+    <button class="pjb-send" id="pjb-send"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11l18-8-8 18-2-7-8-3Z" fill="#0d0d1a"/></svg></button>
+  </div>
+  <div class="pjb-footer">Powered by <b>PJ's Academy</b> · hello@pjsacademy.com</div>
+</div>
+
+<script>
+(function(){
+  /* ─── KNOWLEDGE BASE — edit answers here ─── */
+  var KB = [
+    {keys:['course','offer','learn','teach','what do you','programs','tracks'],
+     a:"We offer <b>3 tracks</b>:<br><br>🧠 <b>Data Science Mastery</b> — Python → ML → GenAI, 15 real projects (₹2,999)<br>❄️ <b>Snowflake for Data Engineers</b> — SnowPro Core prep, 20 projects (₹3,499)<br>🏆 <b>SnowPro Core Certification</b> — 200+ practice Qs + mock exams (₹1,999)<br><br>Which one interests you?"},
+    {keys:['snowflake','snowpro','warehouse','data engineer','cert'],
+     a:"❄️ Our <b>Snowflake track</b> takes you from zero to <b>SnowPro certified</b>!<br><br>You'll master: architecture, Snowpark Python, Streams & Tasks, dbt, security, and cost optimisation — across <b>8 modules and 20 hands-on projects</b>.<br><br>Snowflake engineers in India earn <b>₹18–45 LPA</b>. Want the syllabus or pricing?"},
+    {keys:['price','pricing','cost','fee','how much','₹','rupee','pay','afford'],
+     a:"Here's our pricing 💰:<br><br>• Data Science Mastery — <b>₹2,999</b><br>• Snowflake for Data Engineers — <b>₹3,499</b><br>• SnowPro Core Cert Prep — <b>₹1,999</b><br>• <b>Bundle (DS + Snowflake) — ₹5,499</b> (save ₹999!)<br><br>All include lifetime access + updates. Want to enrol?"},
+    {keys:['project','build','portfolio','hands','practical'],
+     a:"🚀 You'll build <b>real projects</b>, not toy demos!<br><br>Data Science: <b>15 core + 50 advanced</b> projects (fraud detection, RAG chatbots, CNN classifiers, multi-agent systems).<br>Snowflake: <b>20 projects</b> (real-time pipelines, in-warehouse ML, full data platforms).<br><br>Each has v1 → v2 → v3 production versions. Want examples?"},
+    {keys:['job','career','salary','hire','placement','earn','lpa'],
+     a:"💼 These skills are in huge demand!<br><br>• Data Scientists in India: <b>₹8–30 LPA</b><br>• Snowflake Engineers: <b>₹18–45 LPA</b><br>• ML Engineers: <b>₹20–50 LPA</b><br><br>Our projects are designed to be <b>resume-worthy</b>. Ready to start?"},
+    {keys:['python','beginner','start','new','zero','experience','prerequisite'],
+     a:"Perfect for <b>beginners</b>! 🌱<br><br>Data Science Mastery starts from absolute zero — variables, loops, functions — then builds to ML and AI. No prior coding needed.<br><br>For Snowflake, basic SQL helps but we teach the rest. Which track fits you?"},
+    {keys:['genai','llm','ai','chatgpt','rag','agent','gpt'],
+     a:"✨ Our <b>GenAI phase</b> is cutting-edge!<br><br>You'll build: RAG chatbots, multi-agent research systems, fine-tuned LLMs, voice AI agents, and autonomous web agents using LangChain, OpenAI, and open models.<br><br>These are the <b>most in-demand skills of 2026</b>. Want the project list?"},
+    {keys:['certificate','certification','certified','credential'],
+     a:"🏆 Yes! You'll be prepared for:<br><br>• <b>SnowPro Core</b> (foundational)<br>• <b>SnowPro Advanced: Data Engineer</b><br>• <b>SnowPro Advanced: Data Scientist</b><br><br>Includes 200+ practice questions, 4 mock exams, and hands-on labs for every exam domain."},
+    {keys:['contact','email','reach','support','help','talk','human'],
+     a:"📞 Reach us anytime:<br><br>📧 <b>hello@pjsacademy.com</b><br>🌐 <a href='https://pjsacademy.com'>pjsacademy.com</a><br>📸 <b>@pjsacademy.datascience</b><br><br>We usually reply within a few hours!"},
+    {keys:['enrol','enroll','join','sign up','register','buy','purchase','get started'],
+     a:"🎉 Awesome! To enrol:<br><br>1. Visit <a href='https://pjsacademy.com'>pjsacademy.com</a><br>2. Pick your track (or the ₹5,499 bundle)<br>3. Get instant lifetime access<br><br>Any questions before you start?"},
+    {keys:['thank','thanks','great','awesome','cool','nice','good'],
+     a:"You're welcome! 😊 I'm here whenever you need me. Best of luck — remember: <b>data science is not magic, it's math + code + curiosity!</b> 🚀"},
+    {keys:['hi','hello','hey','yo','sup','namaste'],
+     a:"Hey there! 👋 Welcome to <b>PJ's Academy</b>. I can tell you about our Data Science and Snowflake courses, pricing, projects, or careers. What's on your mind?"}
+  ];
+  var FALLBACK = "Great question! I can best help with our <b>courses</b>, <b>Snowflake track</b>, <b>pricing</b>, <b>projects</b>, and <b>careers</b>. Try one of those — or email <b>hello@pjsacademy.com</b> for anything specific! 😊";
+
+  function findAnswer(text){
+    var t=text.toLowerCase(),best=null,bestScore=0;
+    for(var i=0;i<KB.length;i++){
+      var score=0;
+      for(var j=0;j<KB[i].keys.length;j++){ if(t.indexOf(KB[i].keys[j])>-1) score++; }
+      if(score>bestScore){ bestScore=score; best=KB[i]; }
+    }
+    return best?best.a:FALLBACK;
+  }
+
+  var win=document.getElementById('pjb-window'),
+      body=document.getElementById('pjb-body'),
+      input=document.getElementById('pjb-input'),
+      launcher=document.getElementById('pjb-launcher');
+
+  function toggle(){
+    win.classList.toggle('pjb-hidden');
+    var b=launcher.querySelector('.pjb-badge'); if(b)b.style.display='none';
+    if(!win.classList.contains('pjb-hidden')) input.focus();
+  }
+  function addMsg(text,who){
+    var d=document.createElement('div');
+    d.className='pjb-msg '+who; d.innerHTML=text;
+    body.appendChild(d); body.scrollTop=body.scrollHeight;
+  }
+  function showTyping(){
+    var t=document.createElement('div');
+    t.className='pjb-typing'; t.id='pjb-typing';
+    t.innerHTML='<span></span><span></span><span></span>';
+    body.appendChild(t); body.scrollTop=body.scrollHeight;
+  }
+  function hideTyping(){ var t=document.getElementById('pjb-typing'); if(t)t.remove(); }
+  function respond(text){
+    showTyping();
+    setTimeout(function(){ hideTyping(); addMsg(findAnswer(text),'bot'); }, 600+Math.random()*600);
+  }
+  function ask(q){ addMsg(q,'user'); respond(q); }
+  function send(){
+    var text=input.value.trim(); if(!text)return;
+    addMsg(text,'user'); input.value=''; respond(text);
+  }
+
+  launcher.addEventListener('click',toggle);
+  document.getElementById('pjb-close').addEventListener('click',toggle);
+  document.getElementById('pjb-send').addEventListener('click',send);
+  input.addEventListener('keydown',function(e){ if(e.key==='Enter')send(); });
+  var chips=document.querySelectorAll('.pjb-chip');
+  for(var i=0;i<chips.length;i++){
+    chips[i].addEventListener('click',function(){ ask(this.getAttribute('data-q')); });
+  }
+})();
+</script>
+<!-- ══════════════ PJBOT END ══════════════ -->
+
+</body>
+</html>

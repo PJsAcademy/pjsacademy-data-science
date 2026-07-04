@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PJ's Academy — Data Science & Snowflake Mastery</title>
+<meta name="description" content="India's most practical tech academy. Master Data Science, Machine Learning, AI, and Snowflake with 85+ real projects and full SnowPro certification prep.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--navy:#0d0d1a;--navy2:#13132b;--blue:#1356a2;--blue2:#1a6dd4;--gold:#f0a500;--gold2:#ffc542;--snow:#29b5e8;--snow2:#56d0f5;--white:#fff;--gray:#8892a4;--card:#111128;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:16px 64px;background:rgba(13,13,26,0.9);backdrop-filter:blur(24px);border-bottom:1px solid rgba(240,165,0,0.12);}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-mark{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),#d4920a);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:grid;place-items:center;font-weight:900;font-size:11px;color:var(--navy);}
+.logo-name{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:19px;}
+.logo-name em{color:var(--gold);font-style:normal;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,.65);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--navy);padding:10px 22px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;transition:all .2s;}
+.nav-cta:hover{background:var(--gold2);transform:translateY(-1px);}
+@media(max-width:820px){nav{padding:14px 22px;}.nav-links{display:none;}section{padding:64px 22px!important;}}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:110px 64px 80px;text-align:center;}
+#hero-canvas{position:absolute;inset:0;z-index:0;}
+.hero-inner{position:relative;z-index:2;max-width:820px;}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(240,165,0,.1);border:1px solid rgba(240,165,0,.3);padding:7px 18px;border-radius:40px;font-size:12px;font-weight:700;color:var(--gold);margin-bottom:28px;animation:up .8s ease both;}
+.hero-pill .dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:blink 1.4s infinite;}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(38px,5.5vw,70px);font-weight:800;line-height:1.1;margin-bottom:22px;animation:up .8s .12s ease both;}
+h1 .g{background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+h1 .s{background:linear-gradient(135deg,var(--snow),var(--snow2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.6);line-height:1.75;max-width:580px;margin:0 auto 40px;animation:up .8s .24s ease both;}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:up .8s .36s ease both;}
+.btn-g{background:var(--gold);color:var(--navy);padding:15px 34px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;transition:all .25s;box-shadow:0 8px 28px rgba(240,165,0,.3);}
+.btn-g:hover{background:var(--gold2);transform:translateY(-2px);}
+.btn-s{background:rgba(41,181,232,.12);color:var(--snow2);padding:15px 34px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;border:1px solid rgba(41,181,232,.3);transition:all .25s;}
+.btn-s:hover{background:rgba(41,181,232,.2);transform:translateY(-2px);}
+.btn-o{background:rgba(255,255,255,.06);color:var(--white);padding:15px 34px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid rgba(255,255,255,.12);transition:all .25s;}
+.btn-o:hover{background:rgba(255,255,255,.1);transform:translateY(-2px);}
+.stats{display:flex;gap:52px;justify-content:center;margin-top:64px;flex-wrap:wrap;animation:up .8s .48s ease both;}
+.stat-num{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:800;}
+.stat-num.g{color:var(--gold);}.stat-num.s{color:var(--snow);}
+.stat-label{font-size:12px;color:var(--gray);margin-top:4px;}
+.art-wrap{background:var(--navy2);position:relative;overflow:hidden;}
+#art-canvas{display:block;width:100%;height:340px;}
+.art-overlay{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,var(--navy2) 0%,transparent 15%,transparent 85%,var(--navy2) 100%);}
+section{padding:96px 64px;}
+.sec-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.sec-label.g{color:var(--gold);}.sec-label.s{color:var(--snow);}
+.sec-h{font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:800;margin-bottom:14px;}
+.sec-p{color:var(--gray);font-size:15px;line-height:1.75;max-width:500px;margin-bottom:52px;}
+.courses{background:var(--navy);}
+.course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+.course-card{border-radius:18px;padding:32px 28px;border:1px solid rgba(255,255,255,.07);transition:all .3s;cursor:pointer;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block;}
+.course-card.ds{background:linear-gradient(135deg,#0d1b3e,#0f0f24);}
+.course-card.sf,.course-card.sf2{background:linear-gradient(135deg,#001e2b,#0a2030);}
+.course-card:hover{transform:translateY(-6px);}
+.course-card.ds:hover{border-color:rgba(240,165,0,.3);}
+.course-card.sf:hover,.course-card.sf2:hover{border-color:rgba(41,181,232,.3);}
+.course-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;}
+.course-icon{font-size:36px;}
+.course-badge{padding:5px 12px;border-radius:20px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;}
+.badge-g{background:rgba(240,165,0,.15);color:var(--gold);border:1px solid rgba(240,165,0,.25);}
+.badge-s{background:rgba(41,181,232,.15);color:var(--snow);border:1px solid rgba(41,181,232,.25);}
+.badge-new{background:rgba(46,204,113,.15);color:#2ecc71;border:1px solid rgba(46,204,113,.25);}
+.course-name{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:800;margin-bottom:8px;}
+.course-desc{font-size:13px;color:var(--gray);line-height:1.65;margin-bottom:20px;}
+.course-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+.tag{padding:3px 10px;background:rgba(255,255,255,.06);border-radius:4px;font-size:11px;color:rgba(255,255,255,.5);font-weight:500;}
+.course-footer{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(255,255,255,.07);}
+.course-price{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:800;}
+.course-price.g{color:var(--gold);}.course-price.s{color:var(--snow);}
+.course-arrow{font-size:18px;opacity:.5;transition:all .2s;}
+.course-card:hover .course-arrow{opacity:1;transform:translateX(4px);}
+.snow-section{background:var(--navy2);position:relative;overflow:hidden;}
+.snow-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(41,181,232,.06),transparent 60%);pointer-events:none;}
+.snow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.snow-card{background:var(--card);border-radius:16px;padding:28px;border:1px solid rgba(41,181,232,.1);transition:all .3s;}
+.snow-card:hover{border-color:rgba(41,181,232,.3);transform:translateY(-4px);}
+.snow-icon{font-size:28px;margin-bottom:14px;}
+.snow-title{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px;color:var(--snow2);}
+.snow-desc{font-size:13px;color:var(--gray);line-height:1.6;}
+.snow-cert{display:inline-block;margin-top:12px;padding:4px 12px;background:rgba(41,181,232,.1);border-radius:4px;font-size:11px;font-weight:700;color:var(--snow);}
+.phases{background:var(--navy);}
+.phase-row{display:flex;gap:14px;flex-wrap:wrap;}
+.phase-block{flex:1;min-width:150px;background:var(--card);border-radius:14px;padding:24px 18px;border:1px solid rgba(255,255,255,.06);transition:all .3s;position:relative;overflow:hidden;}
+.phase-block::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;}
+.phase-block:nth-child(1)::after{background:#e74c3c;}.phase-block:nth-child(2)::after{background:#9b59b6;}
+.phase-block:nth-child(3)::after{background:#3498db;}.phase-block:nth-child(4)::after{background:#2ecc71;}
+.phase-block:nth-child(5)::after{background:#e67e22;}
+.phase-block:hover{transform:translateY(-5px);}
+.p-num{font-size:11px;font-weight:700;letter-spacing:2px;opacity:.5;margin-bottom:10px;}
+.p-icon{font-size:28px;margin-bottom:10px;}
+.p-name{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px;}
+.p-desc{font-size:12px;color:var(--gray);line-height:1.6;}
+.cta{background:var(--navy2);text-align:center;position:relative;overflow:hidden;}
+.cta-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border-radius:50%;border:1px solid rgba(240,165,0,.04);animation:spin 30s linear infinite;pointer-events:none;}
+.cta h2{font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:800;margin-bottom:14px;position:relative;}
+.cta p{font-size:17px;color:var(--gray);margin-bottom:36px;position:relative;}
+.cta .btns{display:flex;gap:14px;justify-content:center;position:relative;flex-wrap:wrap;}
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06);padding:36px 64px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap;}
+.foot-links a{color:var(--gray);font-size:13px;text-decoration:none;transition:color .2s;}
+.foot-links a:hover{color:var(--gold);}
+.foot-copy{font-size:12px;color:var(--gray);}
+@keyframes up{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.4;}}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg);}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s;}
+.reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#" class="logo"><div class="logo-mark">PJ's</div><span class="logo-name">PJ's <em>Academy</em></span></a>
+  <ul class="nav-links">
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#snowflake">Snowflake</a></li>
+    <li><a href="#phases">Curriculum</a></li>
+    <li><a href="#">Community</a></li>
+  </ul>
+  <a href="#courses" class="nav-cta">Enrol Now →</a>
+</nav>
+
+<section class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-inner">
+    <div class="hero-pill"><span class="dot"></span>India's Most Practical Tech Academy</div>
+    <h1>Master <span class="g">Data Science</span><br>& <span class="s">Snowflake</span> Together</h1>
+    <p class="hero-sub">From Python basics to ML pipelines and Snowflake certifications — hands-on projects that get you hired, not just certified.</p>
+    <div class="hero-btns">
+      <a href="#courses" class="btn-g">Explore Courses →</a>
+      <a href="#snowflake" class="btn-s">❄️ Snowflake Cert</a>
+      <a href="https://github.com/PJsAcademy" class="btn-o">View GitHub</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-num g" id="c1">0</div><div class="stat-label">Students</div></div>
+      <div class="stat"><div class="stat-num g" id="c2">0</div><div class="stat-label">Projects</div></div>
+      <div class="stat"><div class="stat-num s" id="c3">0</div><div class="stat-label">Snowflake Modules</div></div>
+      <div class="stat"><div class="stat-num g" id="c4">0</div><div class="stat-label">Certifications</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="art-wrap"><canvas id="art-canvas"></canvas><div class="art-overlay"></div></div>
+
+<section class="courses" id="courses">
+  <div class="sec-label g">Our Courses</div>
+  <h2 class="sec-h reveal">Everything You Need to Go Far</h2>
+  <p class="sec-p reveal">Three tracks — each with real projects, certification prep, and career outcomes.</p>
+  <div class="course-grid reveal">
+    <a href="#" class="course-card ds">
+      <div class="course-top"><span class="course-icon">🧠</span><span class="course-badge badge-g">Bestseller</span></div>
+      <div class="course-name">Data Science Mastery</div>
+      <div class="course-desc">Python → EDA → ML → MLOps → GenAI. 65 projects with v1/v2/v3 production versions.</div>
+      <div class="course-tags"><span class="tag">Python</span><span class="tag">ML</span><span class="tag">GenAI</span><span class="tag">FastAPI</span><span class="tag">MLflow</span></div>
+      <div class="course-footer"><span class="course-price g">₹2,999</span><span class="course-arrow">→</span></div>
+    </a>
+    <a href="#snowflake" class="course-card sf">
+      <div class="course-top"><span class="course-icon">❄️</span><span class="course-badge badge-s">New</span></div>
+      <div class="course-name">Snowflake for Data Engineers</div>
+      <div class="course-desc">Warehouses, Time Travel, Streams & Tasks, Snowpark, dbt — from zero to SnowPro Core.</div>
+      <div class="course-tags"><span class="tag">SQL</span><span class="tag">Snowpark</span><span class="tag">dbt</span><span class="tag">Streams</span><span class="tag">SnowPro</span></div>
+      <div class="course-footer"><span class="course-price s">₹3,499</span><span class="course-arrow">→</span></div>
+    </a>
+    <a href="#" class="course-card sf2">
+      <div class="course-top"><span class="course-icon">🏆</span><span class="course-badge badge-new">Cert Prep</span></div>
+      <div class="course-name">SnowPro Core Certification</div>
+      <div class="course-desc">Full exam prep — 60+ practice questions, mock exams, hands-on labs. Pass or your money back.</div>
+      <div class="course-tags"><span class="tag">SnowPro Core</span><span class="tag">Mock Exams</span><span class="tag">Labs</span></div>
+      <div class="course-footer"><span class="course-price s">₹1,999</span><span class="course-arrow">→</span></div>
+    </a>
+  </div>
+</section>
+
+<section class="snow-section" id="snowflake">
+  <div class="snow-bg"></div>
+  <div class="sec-label s">❄️ Snowflake Track</div>
+  <h2 class="sec-h reveal">Why Snowflake Right Now?</h2>
+  <p class="sec-p reveal">Snowflake engineers earn ₹18–45 LPA. SnowPro Core is one of the fastest-growing cloud certifications in India.</p>
+  <div class="snow-grid reveal">
+    <div class="snow-card"><div class="snow-icon">🏗️</div><div class="snow-title">Architecture Fundamentals</div><div class="snow-desc">Multi-cluster shared-data architecture, virtual warehouses, micro-partitioning.</div><span class="snow-cert">SnowPro Core — Domain 1</span></div>
+    <div class="snow-card"><div class="snow-icon">⚡</div><div class="snow-title">Snowpark & Python</div><div class="snow-desc">Run Python, Java, Scala inside Snowflake. Build ML pipelines without moving data.</div><span class="snow-cert">Advanced Skill</span></div>
+    <div class="snow-card"><div class="snow-icon">🔄</div><div class="snow-title">Streams, Tasks & Pipes</div><div class="snow-desc">Real-time pipelines with Snowflake-native CDC, Snowpipe, Dynamic Tables.</div><span class="snow-cert">SnowPro Core — Domain 3</span></div>
+    <div class="snow-card"><div class="snow-icon">🛡️</div><div class="snow-title">Security & Governance</div><div class="snow-desc">RBAC, row-level security, dynamic data masking, column-level encryption.</div><span class="snow-cert">SnowPro Core — Domain 4</span></div>
+    <div class="snow-card"><div class="snow-icon">🔗</div><div class="snow-title">dbt + Snowflake</div><div class="snow-desc">Industry-standard ELT — model, test, document your warehouse with dbt.</div><span class="snow-cert">Modern Data Stack</span></div>
+    <div class="snow-card"><div class="snow-icon">📊</div><div class="snow-title">Time Travel & Sharing</div><div class="snow-desc">Query 90 days back, share live data with zero copy — the Data Marketplace.</div><span class="snow-cert">SnowPro Core — Domain 2</span></div>
+  </div>
+</section>
+
+<section class="phases" id="phases">
+  <div class="sec-label g">Data Science Path</div>
+  <h2 class="sec-h reveal">5 Phases. Zero Gaps.</h2>
+  <p class="sec-p reveal">Every concept builds on the last. 43 core concepts, 65 projects, one clear outcome.</p>
+  <div class="phase-row reveal">
+    <div class="phase-block"><div class="p-num">01</div><div class="p-icon">🐍</div><div class="p-name">Python Mastery</div><div class="p-desc">Variables, OOP, decorators, generators.</div></div>
+    <div class="phase-block"><div class="p-num">02</div><div class="p-icon">📊</div><div class="p-name">Data Science</div><div class="p-desc">Pandas, NumPy, Plotly — real data.</div></div>
+    <div class="phase-block"><div class="p-num">03</div><div class="p-icon">🤖</div><div class="p-name">Machine Learning</div><div class="p-desc">Regression to ensembles + SHAP.</div></div>
+    <div class="phase-block"><div class="p-num">04</div><div class="p-icon">🏭</div><div class="p-name">ML Engineering</div><div class="p-desc">MLflow, FastAPI, Docker — to production.</div></div>
+    <div class="phase-block"><div class="p-num">05</div><div class="p-icon">✨</div><div class="p-name">GenAI & LLMs</div><div class="p-desc">LangChain, RAG, agents — real AI apps.</div></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-ring"></div>
+  <h2 class="reveal">Start Your Journey Today</h2>
+  <p class="reveal">Data Science + Snowflake bundle — everything for ₹5,499</p>
+  <div class="btns reveal">
+    <a href="#" class="btn-g">Get the Bundle →</a>
+    <a href="#snowflake" class="btn-s">❄️ Snowflake Only</a>
+    <a href="#" class="btn-o">Free Preview</a>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="logo"><div class="logo-mark">PJ's</div><span class="logo-name">PJ's <em>Academy</em></span></a>
+  <div class="foot-links">
+    <a href="#">pjsacademy.com</a><a href="#">hello@pjsacademy.com</a><a href="#">@pjsacademy.datascience</a><a href="https://github.com/PJsAcademy">GitHub</a>
+  </div>
+  <div class="foot-copy">© 2026 PJ's Academy · All rights reserved</div>
+</footer>
+
+<script>
+/* HERO PARTICLES */
+(()=>{const c=document.getElementById('hero-canvas'),ctx=c.getContext('2d');let W,H,pts=[],mouse={x:-999,y:-999};const CO=['rgba(240,165,0,.8)','rgba(41,181,232,.8)','rgba(255,255,255,.4)'];
+function rs(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}
+function P(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.5;this.vy=(Math.random()-.5)*.5;this.r=Math.random()*1.8+.4;this.c=CO[~~(Math.random()*CO.length)];}
+P.prototype.t=function(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W)this.vx*=-1;if(this.y<0||this.y>H)this.vy*=-1;};
+function init(){rs();pts=[];for(let i=0;i<Math.floor(W*H/7000);i++)pts.push(new P());}
+function d(){ctx.clearRect(0,0,W,H);for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,dd=Math.hypot(dx,dy);if(dd<110){ctx.beginPath();ctx.strokeStyle=`rgba(240,165,0,${.08*(1-dd/110)})`;ctx.lineWidth=.8;ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke();}}const dm=Math.hypot(pts[i].x-mouse.x,pts[i].y-mouse.y);if(dm<160){ctx.beginPath();ctx.strokeStyle=`rgba(41,181,232,${.35*(1-dm/160)})`;ctx.lineWidth=1;ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}pts[i].t();ctx.beginPath();ctx.arc(pts[i].x,pts[i].y,pts[i].r,0,Math.PI*2);ctx.fillStyle=pts[i].c;ctx.fill();}requestAnimationFrame(d);}
+c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
+window.addEventListener('resize',init);init();d();})();
+/* MOTION ART — SNOWFLAKE + NETWORK */
+(()=>{const c=document.getElementById('art-canvas'),ctx=c.getContext('2d');let W,H,t=0,flakes=[],nodes=[];
+function rs(){W=c.width=c.offsetWidth;H=c.height=340;}
+function flake(x,y,r,a,al,col){ctx.save();ctx.translate(x,y);ctx.rotate(a);ctx.globalAlpha=al;ctx.strokeStyle=col;ctx.lineWidth=1.2;for(let i=0;i<6;i++){ctx.save();ctx.rotate(i*Math.PI/3);ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(0,r);ctx.stroke();for(let j=1;j<=3;j++){const by=r*j/3.5,bx=r*.22;ctx.beginPath();ctx.moveTo(-bx,by);ctx.lineTo(bx,by);ctx.stroke();}ctx.restore();}ctx.restore();}
+function init(){rs();flakes=[];for(let i=0;i<22;i++)flakes.push({x:Math.random()*W,y:Math.random()*H,r:12+Math.random()*28,a:Math.random()*6,s:.002+Math.random()*.003,dr:(Math.random()-.5)*.3,al:.06+Math.random()*.18,c:Math.random()>.5?'#29b5e8':'#56d0f5'});nodes=[];for(let i=0;i<18;i++)nodes.push({x:W*.1+Math.random()*W*.8,y:H*.15+Math.random()*H*.7,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:3+Math.random()*3,c:Math.random()>.5?'#f0a500':'#29b5e8',al:.5+Math.random()*.5});}
+function d(){ctx.clearRect(0,0,W,H);ctx.fillStyle='rgba(0,8,20,0.4)';ctx.fillRect(0,0,W,H);flakes.forEach(f=>{f.a+=f.s;f.x+=f.dr;if(f.x<-50)f.x=W+50;if(f.x>W+50)f.x=-50;flake(f.x,f.y,f.r,f.a,f.al,f.c);});for(let i=0;i<nodes.length;i++){nodes[i].x+=nodes[i].vx;nodes[i].y+=nodes[i].vy;if(nodes[i].x<30||nodes[i].x>W-30)nodes[i].vx*=-1;if(nodes[i].y<20||nodes[i].y>H-20)nodes[i].vy*=-1;for(let j=i+1;j<nodes.length;j++){const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,dd=Math.hypot(dx,dy);if(dd<140){ctx.beginPath();ctx.strokeStyle=`rgba(41,181,232,${.12*(1-dd/140)})`;ctx.lineWidth=.8;ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();}}const pl=Math.sin(t*.05+i)*.4+.6,g=ctx.createRadialGradient(nodes[i].x,nodes[i].y,0,nodes[i].x,nodes[i].y,nodes[i].r*4);g.addColorStop(0,nodes[i].c+'66');g.addColorStop(1,'transparent');ctx.beginPath();ctx.arc(nodes[i].x,nodes[i].y,nodes[i].r*4,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();ctx.beginPath();ctx.arc(nodes[i].x,nodes[i].y,nodes[i].r*pl,0,Math.PI*2);ctx.fillStyle=nodes[i].c;ctx.globalAlpha=nodes[i].al;ctx.fill();ctx.globalAlpha=1;}flake(W/2,H/2,60,t*.008,.12,'#29b5e8');flake(W/2,H/2,40,t*.012+1,.08,'#f0a500');const L=[['❄️ Snowflake','#29b5e8',W*.18],['🧠 Data Science','#f0a500',W*.5],['🤖 Machine Learning','#9b59b6',W*.82]];L.forEach(([tx,col,lx])=>{ctx.font='bold 12px Inter';ctx.textAlign='center';ctx.fillStyle=col;ctx.globalAlpha=.85;ctx.fillText(tx,lx,H*.82);ctx.globalAlpha=1;});t++;requestAnimationFrame(d);}
+window.addEventListener('resize',init);init();d();})();
+/* COUNTERS */
+function cnt(id,tg,sf=''){let s=null;const el=document.getElementById(id);function st(ts){if(!s)s=ts;const p=Math.min((ts-s)/2000,1),e=1-Math.pow(1-p,4);el.textContent=Math.floor(e*tg).toLocaleString()+sf;if(p<1)requestAnimationFrame(st);}requestAnimationFrame(st);}
+setTimeout(()=>{cnt('c1',2400,'+');cnt('c2',85);cnt('c3',24);cnt('c4',3);},500);
+/* REVEAL */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');const k=[...e.target.querySelectorAll('.course-card,.snow-card,.phase-block')];k.forEach((x,i)=>{x.style.opacity='0';x.style.transform='translateY(20px)';setTimeout(()=>{x.style.transition='all .5s ease';x.style.opacity='1';x.style.transform='none';},i*90);});}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+<!-- ══════════════ PJ BOT — paste of pjbot-v2.html embed block ══════════════ -->
+<style>
+  #pjb *{box-sizing:border-box;}
+  #pjb .lc{position:fixed;bottom:26px;right:26px;z-index:99999;width:66px;height:66px;border-radius:50%;background:linear-gradient(135deg,#f0a500,#d4920a);border:none;cursor:pointer;display:grid;place-items:center;box-shadow:0 10px 34px rgba(240,165,0,.5);transition:all .3s;animation:pjbBob 3s ease-in-out infinite;}
+  #pjb .lc:hover{transform:scale(1.08) rotate(4deg);}#pjb .lc svg{width:32px;height:32px;}
+  #pjb .bdg{position:absolute;top:-3px;right:-3px;min-width:22px;height:22px;padding:0 5px;background:#e74c3c;border-radius:11px;display:grid;place-items:center;font-size:11px;font-weight:800;color:#fff;border:2px solid #0d0d1a;}
+  #pjb .win{position:fixed;bottom:104px;right:26px;z-index:99999;width:390px;max-width:calc(100vw - 36px);height:600px;max-height:calc(100vh - 130px);background:#12122a;border-radius:22px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,.6);border:1px solid rgba(240,165,0,.18);transition:opacity .28s,transform .28s;transform-origin:bottom right;font-family:'Inter',system-ui,sans-serif;}
+  #pjb .win.hidden{opacity:0;transform:scale(.82) translateY(24px);pointer-events:none;}
+  #pjb .hdr{background:linear-gradient(135deg,#f0a500,#e08e00);padding:16px 18px;display:flex;align-items:center;gap:12px;position:relative;overflow:hidden;}
+  #pjb .hdr::after{content:'';position:absolute;top:-40px;right:-20px;width:120px;height:120px;background:rgba(255,255,255,.12);border-radius:50%;}
+  #pjb .av{width:46px;height:46px;border-radius:14px;background:#12122a;display:grid;place-items:center;font-size:22px;position:relative;z-index:1;}
+  #pjb .hi{position:relative;z-index:1;}#pjb .hi h3{color:#0d0d1a;font-size:16px;font-weight:800;margin:0;}
+  #pjb .hi .st{color:#5a3d00;font-size:12px;font-weight:600;display:flex;align-items:center;gap:5px;}
+  #pjb .hi .st::before{content:'';width:7px;height:7px;background:#0a7d33;border-radius:50%;animation:pjbBlink 1.4s infinite;}
+  #pjb .ha{margin-left:auto;display:flex;gap:8px;position:relative;z-index:1;}
+  #pjb .hb{background:rgba(13,13,26,.15);border:none;color:#0d0d1a;width:32px;height:32px;border-radius:9px;cursor:pointer;font-size:15px;display:grid;place-items:center;transition:background .2s;}
+  #pjb .hb:hover{background:rgba(13,13,26,.28);}#pjb .hb.on{background:#0d0d1a;color:#f0a500;}
+  #pjb .bd{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;background:linear-gradient(180deg,#12122a,#0f0f24);}
+  #pjb .bd::-webkit-scrollbar{width:5px;}#pjb .bd::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:3px;}
+  #pjb .m{max-width:84%;padding:11px 14px;border-radius:15px;font-size:13.5px;line-height:1.55;animation:pjbPop .3s;}
+  #pjb .m.bot{background:#222245;color:#e8e8f0;align-self:flex-start;border-bottom-left-radius:4px;}
+  #pjb .m.user{background:linear-gradient(135deg,#f0a500,#d4920a);color:#0d0d1a;align-self:flex-end;border-bottom-right-radius:4px;font-weight:600;}
+  #pjb .m.bot a{color:#29b5e8;font-weight:700;text-decoration:none;}#pjb .m b{color:#ffc542;}
+  #pjb .ch{display:flex;flex-wrap:wrap;gap:7px;padding:0 18px 6px;}
+  #pjb .c{background:rgba(41,181,232,.12);border:1px solid rgba(41,181,232,.32);color:#56d0f5;padding:7px 13px;border-radius:18px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;}
+  #pjb .c:hover{background:rgba(41,181,232,.24);transform:translateY(-1px);}
+  #pjb .ty{display:flex;gap:4px;padding:13px 15px;background:#222245;border-radius:15px;border-bottom-left-radius:4px;align-self:flex-start;width:fit-content;}
+  #pjb .ty span{width:7px;height:7px;background:#8892a4;border-radius:50%;animation:pjbTy 1.2s infinite;}
+  #pjb .ty span:nth-child(2){animation-delay:.2s;}#pjb .ty span:nth-child(3){animation-delay:.4s;}
+  #pjb .lead{background:#1a1a38;border:1px solid rgba(240,165,0,.3);border-radius:16px;padding:16px;align-self:stretch;animation:pjbPop .3s;}
+  #pjb .lead h4{color:#ffc542;font-size:14px;margin:0 0 4px;}#pjb .lead p{color:#8892a4;font-size:12px;margin:0 0 12px;line-height:1.5;}
+  #pjb .lead input{width:100%;background:#0f0f24;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 12px;color:#fff;font-size:13px;font-family:inherit;margin-bottom:9px;outline:none;}
+  #pjb .lead input:focus{border-color:rgba(240,165,0,.5);}#pjb .lead input::placeholder{color:#66708a;}
+  #pjb .lsub{width:100%;background:linear-gradient(135deg,#f0a500,#d4920a);border:none;color:#0d0d1a;font-weight:800;font-size:13.5px;padding:11px;border-radius:10px;cursor:pointer;}
+  #pjb .lnote{font-size:10.5px;color:#66708a;text-align:center;margin-top:8px;}#pjb .er{color:#e74c3c;font-size:11px;margin:-4px 0 8px;display:none;}
+  #pjb .in{padding:13px 15px;border-top:1px solid rgba(255,255,255,.06);display:flex;gap:9px;background:#0d0d1a;}
+  #pjb .in input{flex:1;background:#1a1a35;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:11px 13px;color:#fff;font-size:13.5px;font-family:inherit;outline:none;}
+  #pjb .in input:focus{border-color:rgba(240,165,0,.4);}#pjb .in input::placeholder{color:#66708a;}
+  #pjb .mic,#pjb .snd{border:none;border-radius:12px;cursor:pointer;display:grid;place-items:center;width:44px;height:44px;transition:all .2s;}
+  #pjb .mic{background:#1a1a35;border:1px solid rgba(255,255,255,.1);}#pjb .mic:hover{background:#22224a;}
+  #pjb .mic.rec{background:#e74c3c;animation:pjbPulse 1s infinite;}#pjb .mic svg{width:19px;height:19px;}
+  #pjb .snd{background:linear-gradient(135deg,#f0a500,#d4920a);}#pjb .snd:hover{transform:scale(1.05);}#pjb .snd svg{width:20px;height:20px;}
+  #pjb .ft{text-align:center;padding:7px;font-size:10.5px;color:#66708a;background:#0d0d1a;}#pjb .ft b{color:#f0a500;}
+  @keyframes pjbBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+  @keyframes pjbBlink{0%,100%{opacity:1;}50%{opacity:.3;}}
+  @keyframes pjbPop{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes pjbTy{0%,60%,100%{transform:translateY(0);opacity:.4;}30%{transform:translateY(-5px);opacity:1;}}
+  @keyframes pjbPulse{0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,.6);}50%{box-shadow:0 0 0 8px rgba(231,76,60,0);}}
+</style>
+<div id="pjb">
+  <button class="lc" id="pjbLc"><span class="bdg">1</span><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.4 1.05 4.58 2.77 6.2L4 22l4.9-1.28C10.06 21.15 11.5 21.4 12 21.4c5.52 0 10-4.03 10-9s-4.48-9-10-9Z" fill="#0d0d1a"/><circle cx="8.5" cy="11.5" r="1.3" fill="#f0a500"/><circle cx="12" cy="11.5" r="1.3" fill="#f0a500"/><circle cx="15.5" cy="11.5" r="1.3" fill="#f0a500"/></svg></button>
+  <div class="win hidden" id="pjbWin">
+    <div class="hdr"><div class="av">🎓</div><div class="hi"><h3>PJ Bot</h3><div class="st">Online · replies instantly</div></div><div class="ha"><button class="hb" id="pjbVoice" title="Voice">🔇</button><button class="hb" id="pjbClose">✕</button></div></div>
+    <div class="bd" id="pjbBody"><div class="m bot">👋 Hi! I'm <b>PJ Bot</b>. Ask about courses, the Snowflake track, pricing, projects or careers — or say <b>'call me'</b> for a free callback!</div></div>
+    <div class="ch" id="pjbChips"><div class="c" data-q="What courses do you offer?">📚 Courses</div><div class="c" data-q="Tell me about Snowflake certification">❄️ Snowflake Cert</div><div class="c" data-q="What is the pricing?">💰 Pricing</div><div class="c" data-q="Can someone call me back?">📞 Callback</div></div>
+    <div class="in"><input type="text" id="pjbInput" placeholder="Type or tap the mic..."><button class="mic" id="pjbMic" title="Speak"><svg viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z" fill="#f0a500"/><path d="M18 11a6 6 0 0 1-12 0M12 18v3" stroke="#f0a500" stroke-width="2" stroke-linecap="round"/></svg></button><button class="snd" id="pjbSend"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11l18-8-8 18-2-7-8-3Z" fill="#0d0d1a"/></svg></button></div>
+    <div class="ft">Powered by <b>PJ's Academy</b> · leads saved securely</div>
+  </div>
+</div>
+<script>
+(function(){
+  var KB=[
+    {k:['course','offer','learn','teach','programs','tracks'],a:"We offer <b>3 tracks</b>:<br><br>🧠 <b>Data Science Mastery</b> — Python→ML→GenAI, 65 projects (₹2,999)<br>❄️ <b>Snowflake for Data Engineers</b> — SnowPro prep, 20 projects (₹3,499)<br>🏆 <b>SnowPro Core Cert Prep</b> — 60+ practice Qs + mocks (₹1,999)<br><br>Which interests you?"},
+    {k:['snowflake','snowpro','warehouse','data engineer','cert'],a:"❄️ Our <b>Snowflake track</b> takes you from zero to <b>SnowPro certified</b> — 8 modules, 20 projects, 60+ practice questions and mock exams.<br><br>Snowflake engineers in India earn <b>₹18–45 LPA</b>. Want a callback?"},
+    {k:['price','pricing','cost','fee','how much','rupee','pay'],a:"Pricing 💰:<br><br>• Data Science Mastery — <b>₹2,999</b><br>• Snowflake Engineers — <b>₹3,499</b><br>• SnowPro Cert Prep — <b>₹1,999</b><br>• <b>Bundle — ₹5,499</b> (save ₹999!)<br><br>Want a callback with a discount code?",lead:true},
+    {k:['project','build','portfolio','hands','practical'],a:"🚀 <b>Real projects</b>! Data Science: <b>15 core + 50 advanced</b>. Snowflake: <b>20 projects</b>. All with v1→v2→v3 versions."},
+    {k:['job','career','salary','hire','placement','lpa'],a:"💼 Huge demand!<br>• Data Scientists: <b>₹8–30 LPA</b><br>• Snowflake Engineers: <b>₹18–45 LPA</b><br>• ML Engineers: <b>₹20–50 LPA</b><br><br>Want career guidance? I can arrange a callback."},
+    {k:['genai','llm','ai','rag','agent','gpt'],a:"✨ Our <b>GenAI phase</b> — RAG chatbots, multi-agent systems, fine-tuned LLMs, voice agents. The most in-demand 2026 skills!"},
+    {k:['beginner','start','new','zero','experience'],a:"Perfect for <b>beginners</b>! 🌱 We start from absolute zero. Which track fits you?"},
+    {k:['hi','hello','hey','namaste'],a:"Hey! 👋 Welcome to <b>PJ's Academy</b>. Ask about courses, Snowflake, pricing — or say <b>'call me'</b>!"},
+    {k:['thank','thanks','great','awesome'],a:"You're welcome! 😊 <b>Data science is math + code + curiosity</b>. 🚀"}
+  ];
+  var FB="I can help with <b>courses</b>, <b>Snowflake</b>, <b>pricing</b>, <b>projects</b>, <b>careers</b> — or a <b>free callback</b>. Just say 'call me'!";
+  var LEAD=['call me','callback','call back','contact me','reach me','phone','talk to','speak to','enrol','enroll','join','sign up','demo'];
+  var win=document.getElementById('pjbWin'),body=document.getElementById('pjbBody'),input=document.getElementById('pjbInput'),lc=document.getElementById('pjbLc'),voiceOn=false;
+  function speak(t){if(!voiceOn||!window.speechSynthesis)return;var c=t.replace(/<[^>]+>/g,'').replace(/[^\x00-\x7F₹]/g,'');var u=new SpeechSynthesisUtterance(c);u.rate=1.05;speechSynthesis.cancel();speechSynthesis.speak(u);}
+  function toggle(){win.classList.toggle('hidden');var b=lc.querySelector('.bdg');if(b)b.style.display='none';if(!win.classList.contains('hidden'))input.focus();}
+  function add(t,w){var d=document.createElement('div');d.className='m '+w;d.innerHTML=t;body.appendChild(d);body.scrollTop=body.scrollHeight;if(w==='bot')speak(t);}
+  function typ(){var t=document.createElement('div');t.className='ty';t.id='pjbTyp';t.innerHTML='<span></span><span></span><span></span>';body.appendChild(t);body.scrollTop=body.scrollHeight;}
+  function untyp(){var t=document.getElementById('pjbTyp');if(t)t.remove();}
+  function needLead(x){x=x.toLowerCase();for(var i=0;i<LEAD.length;i++)if(x.indexOf(LEAD[i])>-1)return true;return false;}
+  function ans(x){x=x.toLowerCase();var b=null,bs=0;for(var i=0;i<KB.length;i++){var s=0;for(var j=0;j<KB[i].k.length;j++)if(x.indexOf(KB[i].k[j])>-1)s++;if(s>bs){bs=s;b=KB[i];}}return b||{a:FB};}
+  function leadForm(){var c=document.createElement('div');c.className='lead';c.innerHTML='<h4>📞 Request a Free Callback</h4><p>Leave your details and our team reaches out within 24 hours.</p><input id="pjbN" placeholder="Your name"><input id="pjbP" placeholder="Phone (WhatsApp)"><input id="pjbE" placeholder="Email"><div class="er" id="pjbEr">Please add name + phone or email.</div><button class="lsub" id="pjbGo">Request Callback →</button><div class="lnote">🔒 Saved securely. No spam.</div>';body.appendChild(c);body.scrollTop=body.scrollHeight;
+    document.getElementById('pjbGo').addEventListener('click',function(){var n=document.getElementById('pjbN').value.trim(),p=document.getElementById('pjbP').value.trim(),e=document.getElementById('pjbE').value.trim();if(!n||(!p&&!e)){document.getElementById('pjbEr').style.display='block';return;}
+      /* ── SAVE LEAD ── replace with Formspree/Google Sheet/WhatsApp (see pjbot-v2.html header) */
+      var L=JSON.parse(localStorage.getItem('pjb_leads')||'[]');L.push({name:n,phone:p,email:e,at:new Date().toISOString()});localStorage.setItem('pjb_leads',JSON.stringify(L));
+      c.remove();add("✅ Thanks <b>"+n+"</b>! Your callback request is saved. We'll reach out within 24 hours. 🎉",'bot');});}
+  function respond(x){typ();setTimeout(function(){untyp();var a=ans(x);add(a.a,'bot');if(needLead(x)||a.lead)setTimeout(leadForm,500);},600+Math.random()*500);}
+  function ask(q){add(q,'user');respond(q);}
+  function send(){var t=input.value.trim();if(!t)return;add(t,'user');input.value='';respond(t);}
+  lc.addEventListener('click',toggle);document.getElementById('pjbClose').addEventListener('click',toggle);document.getElementById('pjbSend').addEventListener('click',send);
+  input.addEventListener('keydown',function(e){if(e.key==='Enter')send();});
+  var ch=document.querySelectorAll('#pjb .c');for(var i=0;i<ch.length;i++)ch[i].addEventListener('click',function(){ask(this.getAttribute('data-q'));});
+  document.getElementById('pjbVoice').addEventListener('click',function(){voiceOn=!voiceOn;this.classList.toggle('on',voiceOn);this.textContent=voiceOn?'🔊':'🔇';if(!voiceOn&&window.speechSynthesis)speechSynthesis.cancel();});
+  var mic=document.getElementById('pjbMic'),SR=window.SpeechRecognition||window.webkitSpeechRecognition,rec=null;
+  if(SR){rec=new SR();rec.lang='en-IN';rec.interimResults=false;rec.onresult=function(e){input.value=e.results[0][0].transcript;send();};rec.onend=function(){mic.classList.remove('rec');};mic.addEventListener('click',function(){mic.classList.add('rec');try{rec.start();}catch(e){mic.classList.remove('rec');}});}
+  else{mic.addEventListener('click',function(){add("🎤 Voice input needs Chrome or Edge!",'bot');});}
+})();
+</script>
+</body>
+</html>
