@@ -7,9 +7,9 @@ Thumbnails of page 1 are in `thumbnails/` — open them to eyeball each PDF.
 | Status | PDF | Pages | Size | Page-1 Thumbnail |
 |--------|-----|-------|------|------------------|
 | ✅ | `course-pdfs\Machine_Learning_Mastery_Complete.pdf` | 37 | 1311 KB | [view](thumbnails\Machine_Learning_Mastery_Complete.png) |
-| ✅ | `course-pdfs\PJs_Academy_Complete_Library.pdf` | 121 | 7129 KB | [view](thumbnails\PJs_Academy_Complete_Library.png) |
+| ✅ | `course-pdfs\PJs_Academy_Complete_Library.pdf` | 145 | 7510 KB | [view](thumbnails\PJs_Academy_Complete_Library.png) |
 | ✅ | `course-pdfs\Prompt_Engineering_Mastery_Complete.pdf` | 22 | 900 KB | [view](thumbnails\Prompt_Engineering_Mastery_Complete.png) |
-| ✅ | `course-pdfs\SQL_Mastery_Complete.pdf` | 25 | 1194 KB | [view](thumbnails\SQL_Mastery_Complete.png) |
+| ✅ | `course-pdfs\SQL_Mastery_Complete.pdf` | 49 | 1569 KB | [view](thumbnails\SQL_Mastery_Complete.png) |
 | ✅ | `machine-learning-course\pdfs\Machine_Learning_Mastery_Complete.pdf` | 37 | 1311 KB | [view](thumbnails\Machine_Learning_Mastery_Complete.png) |
 | ✅ | `prompt-engineering-course\pdfs\Prompt_Engineering_Mastery_Complete.pdf` | 22 | 900 KB | [view](thumbnails\Prompt_Engineering_Mastery_Complete.png) |
 | ✅ | `snowflake-course\infographic\PJs_Academy_Snowflake_Concepts.pdf` | 12 | 1939 KB | [view](thumbnails\PJs_Academy_Snowflake_Concepts.png) |
@@ -27,7 +27,7 @@ Thumbnails of page 1 are in `thumbnails/` — open them to eyeball each PDF.
 | ✅ | `snowflake-course\pdfs\18_Specialty_Gen_AI.pdf` | 3 | 741 KB | [view](thumbnails\18_Specialty_Gen_AI.png) |
 | ✅ | `snowflake-course\pdfs\19_Specialty_Snowpark.pdf` | 3 | 910 KB | [view](thumbnails\19_Specialty_Snowpark.png) |
 | ✅ | `snowflake-course\pdfs\20_Specialty_Native_Apps.pdf` | 4 | 931 KB | [view](thumbnails\20_Specialty_Native_Apps.png) |
-| ✅ | `sql-mastery-course\pdfs\SQL_Mastery_Complete.pdf` | 25 | 1194 KB | [view](thumbnails\SQL_Mastery_Complete.png) |
+| ✅ | `sql-mastery-course\pdfs\SQL_Mastery_Complete.pdf` | 49 | 1569 KB | [view](thumbnails\SQL_Mastery_Complete.png) |
 
 ---
 *Run `py pdf-tests/verify_pdfs.py` anytime to re-verify.*

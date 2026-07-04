@@ -11,18 +11,21 @@ SQL is the #1 most-requested skill in every data job. This course assumes **zero
 - Anyone prepping for data analyst / engineer / scientist interviews
 - People who "kind of know SQL" but freeze on window functions and joins
 
-## 📚 Course Structure
+## 📚 Course Structure — 8 Modules
 
-| Part | Topic |
-|------|-------|
-| 1 | Databases & SELECT basics |
-| 2 | Filtering, sorting, operators |
-| 3 | Aggregations & GROUP BY |
-| 4 | JOINs (the big one) |
-| 5 | Subqueries & CTEs |
-| 6 | Window functions |
-| 7 | Advanced: pivots, recursion, performance |
-| 8 | **100 Practice Problems** (Easy → Hard) |
+| Module | Topic | |
+|--------|-------|--|
+| 01 | Databases & SELECT basics | [read](modules/module-01-databases-select.md) |
+| 02 | Filtering, sorting & operators | [read](modules/module-02-filtering-sorting.md) |
+| 03 | Aggregations & GROUP BY | [read](modules/module-03-aggregations.md) |
+| 04 | JOINs (the big one) | [read](modules/module-04-joins.md) |
+| 05 | Subqueries & CTEs | [read](modules/module-05-subqueries-ctes.md) |
+| 06 | Window functions | [read](modules/module-06-window-functions.md) |
+| 07 | Advanced: pivots, recursion, performance | [read](modules/module-07-advanced.md) |
+| 08 | SQL for interviews & real work | [read](modules/module-08-interview-realwork.md) |
+| ➕ | **100 Practice Problems** (Easy → Hard) | [solve](practice-problems/README.md) |
+
+Also available as a **notebook edition** (`notebooks/`) with a runnable in-notebook SQLite sandbox — Phase → Chapter → Tutorial/Exercises/Quiz, matching the Data Science Mastery format.
 
 ## 🧩 The Practice Bank — [100 Problems](practice-problems/README.md)
 
