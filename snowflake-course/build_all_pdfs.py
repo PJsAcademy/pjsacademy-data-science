@@ -33,6 +33,7 @@ DOCS = [
     ("certification/snowpro-advanced-data-analyst/README.md", "17_Advanced_Data_Analyst"),
     ("certification/snowpro-specialty-gen-ai/README.md", "18_Specialty_Gen_AI"),
     ("certification/snowpro-specialty-snowpark/README.md", "19_Specialty_Snowpark"),
+    ("certification/snowpro-specialty-native-apps/README.md", "20_Specialty_Native_Apps"),
 ]
 
 PAGE_CSS = """

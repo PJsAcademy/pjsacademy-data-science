@@ -1,5 +1,8 @@
 # 🥇 SnowPro Advanced: Data Scientist — Prep Guide
 
+> ⚠️ **Verify against the official exam guide as of July 2026** — Snowflake revises exam codes, domains, and weightings periodically. Confirm current details at [snowflake.com/certifications](https://www.snowflake.com/certifications/) before your exam.
+
+
 **PJ's Academy · Prove you can do end-to-end ML on Snowflake.**
 
 The Data Scientist exam (DSA-C02) validates that you can run the full data-science lifecycle **inside Snowflake** — feature engineering, model training, deployment, and MLOps — using Snowpark, Snowflake ML, and Cortex.

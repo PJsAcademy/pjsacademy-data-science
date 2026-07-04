@@ -1,5 +1,8 @@
 # 🥇 SnowPro Advanced: Data Analyst — Prep Guide
 
+> ⚠️ **Verify against the official exam guide as of July 2026** — Snowflake revises exam codes, domains, and weightings periodically. Confirm current details at [snowflake.com/certifications](https://www.snowflake.com/certifications/) before your exam.
+
+
 **PJ's Academy · Prove you can turn Snowflake data into decisions.**
 
 The Data Analyst exam (DAA-C01) validates advanced analytics skills on Snowflake — complex SQL, data prep, visualization, and delivering trustworthy insights.

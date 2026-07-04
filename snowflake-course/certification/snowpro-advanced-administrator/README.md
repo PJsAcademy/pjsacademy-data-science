@@ -1,5 +1,8 @@
 # 🥇 SnowPro Advanced: Administrator — Prep Guide
 
+> ⚠️ **Verify against the official exam guide as of July 2026** — Snowflake revises exam codes, domains, and weightings periodically. Confirm current details at [snowflake.com/certifications](https://www.snowflake.com/certifications/) before your exam.
+
+
 **PJ's Academy · Prove you can run Snowflake at enterprise scale.**
 
 The Administrator exam (ADA-C01) validates that you can manage accounts, security, cost, performance, and data protection across an organization's Snowflake estate.

@@ -2,6 +2,8 @@
 
 Complete, self-contained prep for **every SnowPro certification**. No external resources needed — study here, pass there. Each guide has domain notes, memory aids, and practice questions with answers.
 
+> ⚠️ **Verify against the official exam guide as of July 2026** — Snowflake revises exam codes, domains, and weightings periodically. Confirm current details at [snowflake.com/certifications](https://www.snowflake.com/certifications/) before selling or sitting any exam.
+
 ---
 
 ## 📚 The Full Certification Lineup
@@ -25,8 +27,9 @@ Complete, self-contained prep for **every SnowPro certification**. No external r
 |---------------|------|-------|
 | **Specialty: Gen AI** | GES-C01 | [Guide](snowpro-specialty-gen-ai/README.md) |
 | **Specialty: Snowpark** | SPS-C01 | [Guide](snowpro-specialty-snowpark/README.md) |
+| **Specialty: Native Apps** | NAS-C01 | [Guide](snowpro-specialty-native-apps/README.md) |
 
-**That's all 8 SnowPro certifications, fully covered.**
+**That's the full SnowPro lineup — 9 certifications, fully covered.**
 
 ---
 

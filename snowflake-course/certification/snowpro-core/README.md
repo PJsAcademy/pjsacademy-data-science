@@ -1,5 +1,8 @@
 # 🏆 SnowPro Core Certification — Complete Prep Guide
 
+> ⚠️ **Verify against the official exam guide as of July 2026** — Snowflake revises exam codes, domains, and weightings periodically. Confirm current details at [snowflake.com/certifications](https://www.snowflake.com/certifications/) before your exam.
+
+
 **PJ's Academy · Everything you need to pass. No external resources required.**
 
 This guide covers **100% of the SnowPro Core (COF-C02) exam** with detailed notes per domain, memory aids, 60+ practice questions with explanations, and a full mock exam.

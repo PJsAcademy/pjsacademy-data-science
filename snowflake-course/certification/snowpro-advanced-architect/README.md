@@ -1,5 +1,8 @@
 # 🥇 SnowPro Advanced: Architect — Prep Guide
 
+> ⚠️ **Verify against the official exam guide as of July 2026** — Snowflake revises exam codes, domains, and weightings periodically. Confirm current details at [snowflake.com/certifications](https://www.snowflake.com/certifications/) before your exam.
+
+
 **PJ's Academy · The expert-level Snowflake credential.**
 
 The Architect exam (ARA-C01) proves you can **design end-to-end Snowflake platforms** — accounts, security, performance, cost governance, and data sharing at enterprise scale.

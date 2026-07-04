@@ -1,5 +1,8 @@
 # 🥈 SnowPro Advanced: Data Engineer — Prep Guide
 
+> ⚠️ **Verify against the official exam guide as of July 2026** — Snowflake revises exam codes, domains, and weightings periodically. Confirm current details at [snowflake.com/certifications](https://www.snowflake.com/certifications/) before your exam.
+
+
 **PJ's Academy · The next step after SnowPro Core.**
 
 This certification (DEA-C02) proves you can **build production data pipelines** on Snowflake. It's harder than Core — scenario-based questions, deeper on performance, pipelines, and Snowpark.

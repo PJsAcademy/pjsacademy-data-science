@@ -1,5 +1,8 @@
 # 🎯 SnowPro Specialty: Snowpark — Prep Guide
 
+> ⚠️ **Verify against the official exam guide as of July 2026** — Snowflake revises exam codes, domains, and weightings periodically. Confirm current details at [snowflake.com/certifications](https://www.snowflake.com/certifications/) before your exam.
+
+
 **PJ's Academy · Prove you can build data & ML pipelines with Snowpark.**
 
 The Snowpark Specialty exam (SPS-C01) validates deep skills with the **Snowpark** developer framework — DataFrames, UDFs/UDTFs, stored procedures, and ML workloads in Python/Java/Scala.
