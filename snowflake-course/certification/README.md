@@ -1,40 +1,79 @@
 # 🏆 Snowflake Certification Prep — PJ's Academy
 
-Complete, self-contained prep for every SnowPro certification. **No external resources needed** — study here, pass there.
+Complete, self-contained prep for **every SnowPro certification**. No external resources needed — study here, pass there. Each guide has domain notes, memory aids, and practice questions with answers.
 
 ---
 
-## 📚 Certification Paths
+## 📚 The Full Certification Lineup
 
-| Certification | Level | Guide | Prerequisite |
-|---------------|-------|-------|--------------|
-| **SnowPro Core** (COF-C02) | Foundational | [Study Guide](snowpro-core/README.md) + [Mock Exam](snowpro-core/mock-exam-1.md) | None |
-| **SnowPro Advanced: Data Engineer** (DEA-C02) | Advanced | [Study Guide](snowpro-advanced-data-engineer/README.md) | Core |
-| **SnowPro Advanced: Architect** (ARA-C01) | Expert | [Study Guide](snowpro-advanced-architect/README.md) | Core |
+### Foundational
+| Certification | Code | Guide |
+|---------------|------|-------|
+| **SnowPro Core** | COF-C02 | [Study Guide](snowpro-core/README.md) · [60-Q Mock](snowpro-core/mock-exam-1.md) |
+
+### Advanced (role-based) — *require Core*
+| Certification | Code | Guide |
+|---------------|------|-------|
+| **Advanced: Architect** | ARA-C01 | [Guide](snowpro-advanced-architect/README.md) |
+| **Advanced: Administrator** | ADA-C01 | [Guide](snowpro-advanced-administrator/README.md) |
+| **Advanced: Data Engineer** | DEA-C02 | [Guide](snowpro-advanced-data-engineer/README.md) |
+| **Advanced: Data Scientist** | DSA-C02 | [Guide](snowpro-advanced-data-scientist/README.md) |
+| **Advanced: Data Analyst** | DAA-C01 | [Guide](snowpro-advanced-data-analyst/README.md) |
+
+### Specialty — *require Core*
+| Certification | Code | Guide |
+|---------------|------|-------|
+| **Specialty: Gen AI** | GES-C01 | [Guide](snowpro-specialty-gen-ai/README.md) |
+| **Specialty: Snowpark** | SPS-C01 | [Guide](snowpro-specialty-snowpark/README.md) |
+
+**That's all 8 SnowPro certifications, fully covered.**
 
 ---
 
-## 🎯 Recommended Journey
+## 🎯 Which Certification Should You Take?
 
 ```
-1. Learn the course  →  8 modules + 20 projects
-2. SnowPro Core      →  study guide + 2 practice tests + 60-Q mock  →  PASS
-3. Pick a specialty:
-   • Building pipelines?  → Advanced Data Engineer
-   • Designing platforms? → Advanced Architect
-4. Land a ₹18–45 LPA role 🎉
+Everyone starts here → SnowPro Core
+
+Then pick your role:
+  Build pipelines?        → Advanced: Data Engineer
+  Design platforms?       → Advanced: Architect
+  Admin an estate?        → Advanced: Administrator
+  Do ML?                  → Advanced: Data Scientist
+  Do analytics/BI?        → Advanced: Data Analyst
+
+Add a specialty to stand out:
+  Building GenAI apps?    → Specialty: Gen AI
+  Snowpark developer?     → Specialty: Snowpark
 ```
 
-## 📊 What's Included
+---
 
-- ✅ **SnowPro Core:** full domain notes, memory aids, 40 practice Qs + 60-Q timed mock, 4-week plan
-- ✅ **Advanced Data Engineer:** Snowpark, Dynamic Tables, pipelines, 10 practice Qs
-- ✅ **Advanced Architect:** platform design, DR, multi-account, cost governance
+## 🗺️ Recommended Career Paths
 
-## 💡 Study Tips
-1. Do the hands-on [projects](../projects/README.md) — cert questions are scenario-based.
-2. Take each mock exam **twice** — once to learn, once to prove.
-3. Focus on the "tricky ones" flagged in each guide — they're the common trip-ups.
+| Goal | Certifications | Outcome |
+|------|---------------|---------|
+| **Data Engineer** | Core → Advanced DE → Specialty Snowpark | ₹18–40 LPA |
+| **Data Scientist** | Core → Advanced DS → Specialty Gen AI | ₹20–45 LPA |
+| **Architect** | Core → Advanced Architect → Advanced Admin | ₹30–60 LPA |
+| **Analyst** | Core → Advanced Data Analyst | ₹10–25 LPA |
+
+---
+
+## 📊 What's Included Per Guide
+- ✅ Exam code, duration, cost, passing score, domain weightings
+- ✅ Detailed domain-by-domain notes with runnable SQL/Python
+- ✅ High-yield "memorize these" fact lists
+- ✅ Practice questions with answer keys
+- ✅ A study plan
+
+Plus: [SnowPro Core 60-question timed mock exam](snowpro-core/mock-exam-1.md) and [Advanced Tutorials](../advanced-tutorials/README.md) for hands-on depth.
+
+## 💡 How to Study
+1. Do the hands-on [projects](../projects/README.md) + [advanced tutorials](../advanced-tutorials/README.md) — Advanced exams are scenario-based.
+2. Take each mock **twice** — once to learn, once to prove.
+3. Focus on the "high-yield facts" — they're the common trip-ups.
+4. Use a **free 30-day Snowflake trial** ($400 credits) to practice for real.
 
 ---
 
