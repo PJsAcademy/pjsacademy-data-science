@@ -26,6 +26,7 @@ PROMO = [
     {"title": "Snowflake Mastery — Complete Guide", "desc": "43 chapters, zero to Cortex AI, exam-mapped with real diagrams and hands-on labs."},
     {"title": "Machine Learning Mastery — Complete Guide", "desc": "30 chapters, foundations to production MLOps, with a 50-project portfolio vault."},
     {"title": "GenAI & Prompt Engineering Mastery — Complete Guide", "desc": "31 chapters: prompting, RAG, AI agents, and shipping safe production GenAI systems."},
+    {"title": "Python Mastery — Complete Guide", "desc": "45 chapters, zero to GenAI engineer, with real executed code, outputs, and charts."},
 ]
 
 if __name__ == "__main__":
